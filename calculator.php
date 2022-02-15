@@ -29,8 +29,14 @@
          <b>OUTPUT:</b>
 
          <?php
-$first_num = $_POST['first_num'];
-$second_num = $_POST['second_num'];
+// $first_num = $_POST['first_num'];
+// $second_num = $_POST['second_num'];
+if(isset($_POST['first_num'])){
+  $first_num = $_POST['first_num'];
+}
+if(isset($_POST['second_num'])){
+  $second_num = $_POST['second_num'];
+}
 
 if(isset($_POST['add_btn'])){
 echo $first_num + $second_num;
@@ -42,7 +48,13 @@ elseif(isset($_POST['multi_btn'])){
  echo $first_num * $second_num;
 }
 elseif(isset($_POST['div_btn'])){
-echo $first_num / $second_num;
+  if($second_num != 0){
+    echo $first_num / $second_num;
+  }
+  else{
+    echo " Can not devided by zero" ;
+  }
+
 }
 elseif(isset($_POST['mod_btn'])){
 echo $first_num % $second_num;
